@@ -5,7 +5,12 @@
 docker run -it -v ~/.aws/:/root/.aws:ro saws
 ```
 
-### List EC2 Instances
+### List EC2 Instance ID (simple)
+```
+aws ec2 describe-instances --query 'Reservations[*].Instances[0].{InstID:InstanceId}' --output table
+```
+
+### List EC2 Instances (with Name Tag)
 ```
 aws ec2 describe-instances --query 'Reservations[*].Instances[0].{VPCID:VpcId,InstnceID:InstanceId,Type:InstanceType,State:State.Name,Name:Tags[?Key==`Name`].Value | [0]}' --output table
 ```
