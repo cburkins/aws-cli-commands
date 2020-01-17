@@ -5,6 +5,26 @@
 docker run -it -v ~/.aws/:/root/.aws:ro saws
 ```
 
+### List Profile Currently In-Use
+
+```
+aws configure list
+
+aws configure --profile vpcxTest01
+
+```
+
+### List All User Profiles
+```
+cat ~/.aws/config
+```
+
+### Using a different profile (once)
+
+```
+aws ec2 describe-instances --profile vpcxTest01
+```
+
 ### List EC2 Instance ID (simple)
 ```
 aws ec2 describe-instances --query 'Reservations[*].Instances[0].{InstID:InstanceId}' --output table
