@@ -5,6 +5,11 @@
 docker run -it -v ~/.aws/:/root/.aws:ro saws
 ```
 
+### List EC2 Instances
+```
+aws ec2 describe-instances --query 'Reservations[*].Instances[0].{VPCID:VpcId,InstnceID:InstanceId,Type:InstanceType,State:State.Name,Name:Tags[?Key==`Name`].Value | [0]}' --output table
+```
+
 ### Create a new Redis Cluster with 1 very small node
 ```
 $ aws elasticache create-cache-cluster --engine redis --cache-cluster-id test03 --cache-node-type "cache.t2.micro" --num-cache-nodes 1
