@@ -72,9 +72,6 @@ List IAM Profiles
 aws iam list-instance-profiles --query 'InstanceProfiles[*].{InstanceProfileId:InstanceProfileId,InstanceProfileName:InstanceProfileName,Arn:Arn}' --output table
 
 Create New EC2 Instance
-Works (single security group "default")
-aws ec2 run-instances --image-id ami-090b610d06e31841e --count 1 --instance-type t2.small --security-group-ids sg-a9b221cc --iam-instance-profile Name=itx-afj-app-irisdashboard-development-5JGYU651CUIC --subnet-id subnet-d1747d97 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=TestServer01},{Key=application,Value=APP000010003030},{Key=Environment,Value=Development}]'
-New: (added multiple security groups)
 aws ec2 run-instances --image-id ami-090b610d06e31841e --count 1 --instance-type t2.small --security-group-ids sg-a9b221cc sg-21b12244 sg-f1f80896 --iam-instance-profile Name=itx-afj-app-irisdashboard-development-5JGYU651CUIC --subnet-id subnet-d1747d97 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=TestServer02},{Key=application,Value=APP000010003030},{Key=Environment,Value=Development}]'
 ```
 
