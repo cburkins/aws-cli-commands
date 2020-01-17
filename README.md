@@ -1,4 +1,6 @@
 
+# Profile
+
 ### Awesome AWS Commandline with auto-completion of commands
 
 ```
@@ -25,6 +27,8 @@ cat ~/.aws/config
 aws ec2 describe-instances --profile vpcxTest01
 ```
 
+# EC2
+
 ### List EC2 Instance ID (simple)
 ```
 aws ec2 describe-instances --query 'Reservations[*].Instances[0].{InstID:InstanceId}' --output table
@@ -34,6 +38,8 @@ aws ec2 describe-instances --query 'Reservations[*].Instances[0].{InstID:Instanc
 ```
 aws ec2 describe-instances --query 'Reservations[*].Instances[0].{VPCID:VpcId,InstnceID:InstanceId,Type:InstanceType,State:State.Name,Name:Tags[?Key==`Name`].Value | [0]}' --output table
 ```
+
+# Elasticache (Redis)
 
 ### Create a new Redis Cluster with 1 very small node
 ```
