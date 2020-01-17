@@ -1,4 +1,10 @@
 
+### Awesome AWS Commandline with auto-completion of commands
+
+```
+docker run -it -v ~/.aws/:/root/.aws:ro saws
+```
+
 ### Create a new Redis Cluster with 1 very small node
 ```
 $ aws elasticache create-cache-cluster --engine redis --cache-cluster-id test03 --cache-node-type "cache.t2.micro" --num-cache-nodes 1
